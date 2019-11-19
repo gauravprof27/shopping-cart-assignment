@@ -160,11 +160,19 @@
   }
 // 992px window width and more Tablet
   @include lg {
-
+    button{
+      width: auto;
+    } 
+    .item-container {
+      width: 200px;
+    }
 
   }
 // 1400px window width and more Desktop
   @include rwd(1400) {
+    button{
+      width: auto;
+    } 
     .item-container {
       width: 200px;
     }

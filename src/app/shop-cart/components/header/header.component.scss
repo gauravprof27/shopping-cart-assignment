@@ -1,0 +1,101 @@
+
+@import '../../../vars';
+
+.brand-star {
+  color: #ffc107 !important;
+  font-size: 120%;
+}
+
+
+
+.goToCart-button {
+  position: relative;
+}
+/*************************
+*******Header CSS******
+**************************/
+
+header {
+  background: none repeat scroll 0 0 #0db9f0;
+}
+.container {
+  padding: 0px;
+
+
+  // 576px window width and more Mobile
+  @include sm {
+    input.search {
+      width: 100%;
+    }
+    button{
+      width: 100%;
+    }    
+    .form-inline {
+      margin: 10px;
+      button{
+        margin-top: 10px;
+      }
+    }
+    .notification-number {
+      background: #FE980F;
+    border-radius: 13px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: 1px solid #FFF;
+    font-size: 14px;
+    color: #000;
+    }
+  }
+// 992px window width and more Tablet
+  @include lg {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1100px;
+
+      input.search {
+        width: 100%;
+        
+      }
+      button{
+        width: 100%;
+      }    
+      .form-inline {
+        button{
+          margin-top: 10px;
+          margin-right: 5px;
+        }
+      }
+
+  }
+// 1400px window width and more Desktop
+  @include rwd(1400) {
+  
+    .notification-number {
+      background: #FE980F;
+      border-radius: 10px;
+      position: absolute;
+      right: -14px;
+      top: -8px;
+      border: 1px solid #FFF;
+    }
+    .container {
+      width: 1170px;
+    }
+      input.search {
+        width: 70%;
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 5px;
+      }
+      button{
+        width: auto;
+      }    
+      .form-inline {
+        button{
+          margin-top: 10px;
+        }
+      }
+
+  }
+}

@@ -1,0 +1,43 @@
+<!-- <div class="container">
+  <div class="form-group">
+    <div class="well"></div>
+    <label for="formControlRange"><h2>Filter</h2></label>
+    <ng5-slider
+      [(value)]="minVal"
+      [(highValue)]="maxVal"
+      [options]="options"
+    ></ng5-slider>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary add-to-cart-button"
+    (click)="onApplyPriceFilter()"
+    >Apply</button
+  >
+</div> -->
+
+
+
+<div class="container">
+  <div class="form-group">
+      <div class="price-range"><!--price-range-->
+        <label for="formControlRange"><h2>Price Range</h2></label>
+        <h2></h2>
+        <div class="well text-center">
+            <ng5-slider
+            [(value)]="minVal"
+            [(highValue)]="maxVal"
+            [options]="options"
+          ></ng5-slider>
+          <button
+          type="button"
+          class="btn btn-primary add-to-cart-button"
+          (click)="onApplyPriceFilter()"
+          >Apply</button
+        >
+        <p class="note"><span>*</span> Filter will work on Actual Price</p>
+        </div>
+      </div>
+  </div>
+</div>
+

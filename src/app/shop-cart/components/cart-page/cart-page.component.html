@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="header">
+    <h3 class="main-title">Order Summery</h3>
+    <button
+      type="button"
+      class="btn btn-primary go-to-cart-button"
+      (click)="navigateToHome()"
+    >
+      Back to Home
+    </button>
+  </div>
+
+  <div class="no-cart-data" *ngIf="cartData.length === 0">
+    <h4>No data in cart.</h4>
+  </div>
+
+  <div class="cart-container" *ngIf="cartData.length > 0">
+    <div class="row">
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">{{ getTotalItems() }}</th>
+              <th scope="col" class="text-center">Qty</th>
+              <th scope="col" class="text-center">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pItem of cartData">
+              <td>
+                <div class="item-discription">
+                  <span class="item-image">
+                    <img [src]="pItem.img_url" alt="P" />
+                  </span>
+                  <span class="item-name">{{ pItem.name }}</span>
+                  <span class="item-remove" (click)="removeItem(pItem.id)"
+                    >X</span
+                  >
+                </div>
+              </td>
+              <td class="text-center">
+                <div class="item-quantity">
+                  <span class="item-remove" (click)="removeOne(pItem.id)"
+                    ><fa name="minus"></fa
+                  ></span>
+                  <input
+                    type="number"
+                    min="1"
+                    class="item-count"
+                    [(ngModel)]="pItem.count"
+                    readonly
+                  />
+                  <span class="item-add" (click)="addOne(pItem.id)"
+                    ><fa name="plus"></fa
+                  ></span>
+                </div>
+              </td>
+              <td class="text-center">
+                <div class="iterm-price">
+                  {{ pItem.price * pItem.count | currency }}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <div class="cart-total-container">
+          <div class="row"><h5>Total</h5></div>
+          <div class="row">
+            <span class="total-items span-lebel">{{ getTotalItems() }}</span>
+            <span class="total-cost span-value">{{
+              getTotalCost() | currency
+            }}</span>
+          </div>
+          <div class="row">
+            <span class="total-discount span-lebel">Discount</span>
+            <span class="total-discount__value span-value">{{
+              getTotalDiscount() | currency
+            }}</span>
+          </div>
+          <div class="row">
+            <span class="type-discount span-lebel">Type Discount</span>
+            <span class="type-discount-value span-value">-$0</span>
+          </div>
+          <div class="row order-total">
+            <span class="span-lebel">Order Total</span>
+            <span class="order-total-value span-value">{{
+              totalCost - totalDiscount | currency
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

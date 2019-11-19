@@ -1,0 +1,29 @@
+<div class="row container-sort">
+    <div class="col-md-2">
+      <h2 class="sort-by-Tag">Sort By</h2>
+    </div>
+    <div
+      class="col-md-4"
+      [ngClass]="orderByKey == 'price' && orderByOrder === true ? 'active' : ''"
+    >
+      <p class="price-high-low" (click)="setOrderByKeys('price', true)">
+        Price -- High Low
+      </p>
+    </div>
+    <div
+      class="col-md-4"
+      [ngClass]="orderByKey == 'price' && orderByOrder === false ? 'active' : ''"
+    >
+      <p class="price-low-high" (click)="setOrderByKeys('price', false)">
+        Price -- Low High
+      </p>
+    </div>
+    <div
+      class="col-md-2"
+      [ngClass]="
+        orderByKey == 'discount' && orderByOrder === false ? 'active' : ''
+      "
+    >
+      <p class="discount" (click)="setOrderByKeys('discount', false)">Discount</p>
+    </div>
+  </div>
